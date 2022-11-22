@@ -1,5 +1,10 @@
 //jshint esversion:6
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 8080;
+}
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -133,11 +138,6 @@ app.post("/delete", function (req, res) {
 app.get("/about", function (req, res) {
     res.render("about");
 });
-
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 3000;
-}
 
 app.listen(port, function () {
     console.log("Server started successfully");
